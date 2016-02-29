@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pl.kkoscielniak.rpn.controller;
 
 import java.util.EmptyStackException;
@@ -29,8 +24,8 @@ public class Controller {
         try {
             List<StackState> evaluatedStackStates = rpn.CalculateRPN(args);
             
-            for(int i = 0; i < evaluatedStackStates.size(); i++) {
-                System.out.println(evaluatedStackStates.get(i).getStack());
+            for (StackState evaluatedStackState : evaluatedStackStates) {
+                System.out.println(evaluatedStackState.getStack());
             }
             
         } catch (EmptyStackException e) {
