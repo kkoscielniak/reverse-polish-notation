@@ -23,9 +23,16 @@ public class Controller {
         View view = new View();
         
         try {
-            List<StackState> evaluatedStackStates = rpn.CalculateRPN(args);
+            List<StackState> evaluatedStackStates;
+            
+            if (args.length == 0) {
+                evaluatedStackStates = rpn.CalculateRPN(view.getTheEquation());
+            } else {
+                evaluatedStackStates = rpn.CalculateRPN(args);
+            }
             
             view.printTable(evaluatedStackStates);
+            
             
         } catch (EmptyStackException e) {
             System.out.println("The stack is empty!");

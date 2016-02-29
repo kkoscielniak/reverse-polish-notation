@@ -26,9 +26,11 @@ public class View {
      * Prompts for equation if the user didn't pass it as an arguments.
      * @return input written by the user
      */
-    public String getTheEquation() {
+    public String[] getTheEquation() {
         System.out.print("Put the equation here: ");
-        return scanner.nextLine();
+        String scannedEquation = scanner.nextLine();
+        
+        return scannedEquation.split(" ");
     }
     
     /**
@@ -44,19 +46,29 @@ public class View {
      * @param stackStates list of saved stack states to be shown 
      */
     public void printTable(List<StackState> stackStates) {
-        String leftAlignFormat = "| %-4s | %-30s | %-4s |%n";
+        final String operators = "+-*/";
+        final String leftAlignFormat = "| %-4s | %-30s | %-4s |%n";
 
         System.out.format("+------+--------------------------------+------+%n");
         System.out.format("+ Step | Current stack                  | Op   |%n");
         System.out.format("+------+--------------------------------+------+%n");
-        
-        
+
         int i = 1;        
         for (StackState stackState : stackStates) {
-            System.out.format(leftAlignFormat, 
+            
+            if (!operators.contains(stackState.getOperator())) {
+                System.out.format(leftAlignFormat, 
                     i,
                     stackState.getStack(), 
-                    stackState.getOperator());
+                    ""
+                );
+            } else {
+                System.out.format(leftAlignFormat, 
+                    i,
+                    stackState.getStack(), 
+                    stackState.getOperator()
+                );
+            }
             
             i++;
         }
