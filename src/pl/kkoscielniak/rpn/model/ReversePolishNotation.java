@@ -5,6 +5,8 @@
  */
 package pl.kkoscielniak.rpn.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -17,13 +19,14 @@ public class ReversePolishNotation {
         
     }
     
-    public int CalculateRPN(String[] arguments) {
+    public List<StackState> CalculateRPN(String[] arguments) {
         
         int calculatedValue = 0;
         
         String operators = "+-*/";
  
-        Stack<String> stack = new Stack<String>();
+        Stack<String> stack = new Stack<>();
+        List<StackState> stackStates = new ArrayList<>();
  
         for(String arg : arguments){
             if (!operators.contains(arg)) {
@@ -32,8 +35,6 @@ public class ReversePolishNotation {
                 int a = Integer.valueOf(stack.pop());
                 int b = Integer.valueOf(stack.pop());
                 int index = operators.indexOf(arg);
-                
-                System.out.println(stack);
                 
                 switch (index) {
                     case 0:
@@ -51,17 +52,11 @@ public class ReversePolishNotation {
                 }
             }
             
-            if (!stack.isEmpty()) {
-                System.out.print(stack + " ");
-                if (operators.contains(arg)) {
-                    System.out.print(arg);
-                }
-                System.out.println();
-            }
+            StackState ss = new StackState(stack.toString(), arg);
+           
+            stackStates.add(ss);
         }
- 
-        calculatedValue = Integer.valueOf(stack.pop());
-      
-        return calculatedValue;
+       
+        return stackStates;
     };
 }

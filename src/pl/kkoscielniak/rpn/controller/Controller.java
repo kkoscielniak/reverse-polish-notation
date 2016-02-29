@@ -6,7 +6,9 @@
 package pl.kkoscielniak.rpn.controller;
 
 import java.util.EmptyStackException;
+import java.util.List;
 import pl.kkoscielniak.rpn.model.ReversePolishNotation;
+import pl.kkoscielniak.rpn.model.StackState;
 
 /**
  * Responsible for interacting with the model 
@@ -25,12 +27,14 @@ public class Controller {
         ReversePolishNotation rpn = new ReversePolishNotation();
         
         try {
-            System.out.println(rpn.CalculateRPN(args));
+            List<StackState> evaluatedStackStates = rpn.CalculateRPN(args);
+            
+            for(int i = 0; i < evaluatedStackStates.size(); i++) {
+                System.out.println(evaluatedStackStates.get(i).getStack());
+            }
             
         } catch (EmptyStackException e) {
             System.out.println("The stack is empty!");
         }
-        
-        
     }
 }
