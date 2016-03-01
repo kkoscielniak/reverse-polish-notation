@@ -10,10 +10,18 @@ import java.util.Stack;
  */
 public class ReversePolishNotation {
     
+    /**
+     * The constructor takes no arguments
+     */
     public ReversePolishNotation() {
         
     }
     
+    /**
+     * Calculates and saves the whole process of calculation of the Reverse
+     * Polish notation.
+     * @param arguments equation saved as an array
+     */
     public List<StackState> CalculateRPN(String[] arguments) {
         
         int calculatedValue = 0;

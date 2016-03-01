@@ -16,7 +16,7 @@ public class View {
     private final Scanner scanner = new Scanner(System.in);
     
     /**
-     * The contructor takes no arguments.
+     * The constructor takes no arguments.
      */
     public View() {
         
