@@ -23,7 +23,7 @@ public class ReversePolishNotation {
      * @param arguments equation saved as an array
      * @return stackStates as a list 
      */
-    public List<StackState> CalculateRPN(String[] arguments) {
+    public List<StackState> calculateRPN(String[] arguments) {
         
         String operators = "+-*/";
  

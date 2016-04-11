@@ -26,9 +26,9 @@ public class Controller {
             List<StackState> evaluatedStackStates;
             
             if (args.length == 0) {
-                evaluatedStackStates = rpn.CalculateRPN(view.getTheEquation());
+                evaluatedStackStates = rpn.calculateRPN(view.getTheEquation());
             } else {
-                evaluatedStackStates = rpn.CalculateRPN(args);
+                evaluatedStackStates = rpn.calculateRPN(args);
             }
             view.printTable(evaluatedStackStates);
             
