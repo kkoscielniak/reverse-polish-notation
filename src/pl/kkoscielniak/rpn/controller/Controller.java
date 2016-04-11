@@ -30,9 +30,7 @@ public class Controller {
             } else {
                 evaluatedStackStates = rpn.CalculateRPN(args);
             }
-            
             view.printTable(evaluatedStackStates);
-            
             
         } catch (EmptyStackException e) {
             System.out.println("The stack is empty!");

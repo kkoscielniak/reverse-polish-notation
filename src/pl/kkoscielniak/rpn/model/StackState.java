@@ -1,14 +1,18 @@
 package pl.kkoscielniak.rpn.model;
 
-import java.util.Stack;
-
 /**
  * This class is used to send current stack state to the controller.
  * @author krystian
  */
 public class StackState {
     
+    /**
+     * Holds stack for current stack state
+     */
     private String stack;
+    /**
+     * Holds operator for current stack state
+     */
     private String operator;
     
     /**

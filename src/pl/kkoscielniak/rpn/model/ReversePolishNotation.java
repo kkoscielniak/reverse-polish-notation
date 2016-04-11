@@ -21,10 +21,9 @@ public class ReversePolishNotation {
      * Calculates and saves the whole process of calculation of the Reverse
      * Polish notation.
      * @param arguments equation saved as an array
+     * @return stackStates as a list 
      */
     public List<StackState> CalculateRPN(String[] arguments) {
-        
-        int calculatedValue = 0;
         
         String operators = "+-*/";
  
@@ -56,10 +55,8 @@ public class ReversePolishNotation {
             }
             
             StackState ss = new StackState(stack.toString(), arg);
-           
-            stackStates.add(ss);
+            stackStates.add(ss); 
         }
-       
         return stackStates;
     };
 }
